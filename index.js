@@ -4,6 +4,8 @@ const { Text, Checkbox, Password } = require('@keystonejs/fields');
 const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
 const initialiseData = require('./initial-data');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
 const PROJECT_NAME = 'gabethedumbserver';
@@ -13,11 +15,10 @@ const User = require('./lists/User');
 const ArchiveImage = require('./lists/ArchiveImage');
 
 
-
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
-  cookieSecret: process.env.COOKIE_SECRET
+  cookieSecret: 'GABETHEDUMBIDIOT'
 });
 
 // Access control functions
