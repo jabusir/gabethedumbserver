@@ -9,7 +9,7 @@ dotenv.config();
 
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
 const PROJECT_NAME = 'gabethedumbserver';
-const adapterConfig = { mongoUri: 'mongodb://localhost/gabethedumbserver' };
+const adapterConfig = { mongoUri: 'mongodb://admin@mongo/gabethedumbserver' };
 
 const User = require('./lists/User');
 const ArchiveImage = require('./lists/ArchiveImage');
