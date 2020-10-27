@@ -1,5 +1,6 @@
 const crypto = require('crypto');
-const randomString = () => crypto.randomBytes(6).hexSlice();
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = async keystone => {
   // Count existing users
@@ -17,8 +18,8 @@ module.exports = async keystone => {
   });
 
   if (count === 0) {
-    const password = randomString();
-    const email = 'admin@example.com';
+    const password = process.env.PASSWORD
+    const email = process.env.email;
 
     const { errors } = await keystone.executeGraphQL({
       context: keystone.createContext({ skipAccessControl: true }),
