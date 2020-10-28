@@ -18,7 +18,12 @@ const ArchiveImage = require('./lists/ArchiveImage');
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
-  cookieSecret: 'GABETHEDUMBIDIOT'
+  cookieSecret: 'GABETHEDUMBIDIOT',
+  cookie = {
+    secure: false, // Defaults to true in production
+    maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
+    sameSite: false,
+  }
 });
 
 // Access control functions
