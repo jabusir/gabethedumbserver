@@ -4,6 +4,8 @@ const { Text, Checkbox, Password } = require('@keystonejs/fields');
 const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
 const initialiseData = require('./initial-data');
+const expressSession = require('express-session');
+const MongoStore = require('connect-mongo')(expressSession);
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -20,6 +22,7 @@ const keystone = new Keystone({
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
   cookieSecret: 'GABETHEDUMBIDIOT',
   secureCookies: false,
+  sessionStore: new MongoStore({ url: 'mongodb://mongo/gabethedumbserver' }),
   cookie: {
     secure: false, // Defaults to true in production
     maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
