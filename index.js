@@ -11,17 +11,18 @@ dotenv.config();
 
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
 const PROJECT_NAME = 'gabethedumbserver';
-const adapterConfig = { mongoUri: 'mongodb://mongo/gabethedumbserver' };
+const adapterConfig = { mongoUri: 'mongodb://localhost/gabethedumbserver' };
 
 const User = require('./lists/User');
 const ArchiveImage = require('./lists/ArchiveImage');
 
 
 const keystone = new Keystone({
+  secureCookies: false,
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
   adapter: new Adapter(adapterConfig),
   cookieSecret: 'GABETHEDUMBIDIOT',
-  sessionStore: new MongoStore({ url: 'mongodb://mongo/gabethedumbserver' }),
+  sessionStore: new MongoStore({ url: 'mongodb://localhost/gabethedumbserver' }),
   cookie: {
     secure: false, // Defaults to true in production
     maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
@@ -64,7 +65,7 @@ module.exports = {
     new AdminUIApp({
       name: PROJECT_NAME,
       enableDefaultRoute: true,
-      authStrategy,
+      // authStrategy,
     }),
   ],
 };
