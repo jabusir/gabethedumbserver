@@ -53,6 +53,5 @@ module.exports = {
     update: access.userIsAdminOrOwner,
     create: access.userIsAdmin,
     delete: access.userIsAdmin,
-    auth: true,
   },
 };
