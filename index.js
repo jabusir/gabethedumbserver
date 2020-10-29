@@ -69,7 +69,7 @@ module.exports = {
       authStrategy,
     }),
     new StaticApp({
-      path: './archive',
+      path: '/archive',
       src: './archive',
     }),
   ],
