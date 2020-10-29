@@ -70,7 +70,7 @@ module.exports = {
     }),
     new StaticApp({
       path: '/archive',
-      src: '/archive',
+      src: './archive',
     }),
   ],
 };

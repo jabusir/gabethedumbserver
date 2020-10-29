@@ -1671,6 +1671,14 @@
     graphql "^15.3.0"
     nanoassert "^2.0.0"
 
+"@keystonejs/app-static@^5.1.3":
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/@keystonejs/app-static/-/app-static-5.1.3.tgz#a07f7c873039f8c9569fb52806a1ed01a47d659e"
+  integrity sha512-V0M0eYJekLlGTJbnw9Qky4Q7ihvizflZgaq4gDYwzNTlOY9mQroRtKVOf8GFNOiOuYfMyEUPOoydaCA/6toYfg==
+  dependencies:
+    express-history-api-fallback "^2.2.1"
+    fs-extra "^9.0.1"
+
 "@keystonejs/app-version@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@keystonejs/app-version/-/app-version-1.0.2.tgz#3c8e3bc9a4ee61dae302ba6e2d0d6ee5773f92d0"
