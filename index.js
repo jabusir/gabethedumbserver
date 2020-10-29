@@ -3,6 +3,7 @@ const { PasswordAuthStrategy } = require('@keystonejs/auth-password');
 const { Text, Checkbox, Password } = require('@keystonejs/fields');
 const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
+const { StaticApp } = require('@keystonejs/app-static');
 const initialiseData = require('./initial-data');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo')(expressSession);
@@ -66,6 +67,10 @@ module.exports = {
       name: PROJECT_NAME,
       enableDefaultRoute: true,
       authStrategy,
+    }),
+    new StaticApp({
+      path: '/archive',
+      src: '/archive',
     }),
   ],
 };
