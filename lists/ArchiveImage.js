@@ -3,7 +3,7 @@ const { LocalFileAdapter } = require('@keystonejs/file-adapters');
 
 
 const fileAdapter = new LocalFileAdapter({
-  src: './archive',
+  src: 'archive',
   path: '/archive',
 });
 
