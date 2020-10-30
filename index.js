@@ -69,8 +69,8 @@ module.exports = {
       authStrategy,
     }),
     new StaticApp({
-      path: '/archive',
       src: './archive',
+      path: '/gabethedumbserver/archive',
     }),
   ],
 };
