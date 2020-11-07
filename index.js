@@ -10,11 +10,12 @@ const MongoStore = require('connect-mongo')(expressSession);
 const dotenv = require('dotenv');
 dotenv.config();
 
-const uri = process.env.NODE_ENV
+const uri = process.env.NODE_ENV === 'dev' ? 'localhost' : 'mongo'
+console.log(uri)
 
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
 const PROJECT_NAME = 'gabethedumbserver';
-const adapterConfig = { mongoUri: 'mongodb://mongo/gabethedumbserver' };
+const adapterConfig = { mongoUri: `mongodb://mongo/gabethedumbserver`};
 
 const User = require('./lists/User');
 const ArchiveImage = require('./lists/ArchiveImage');
@@ -25,7 +26,7 @@ const keystone = new Keystone({
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
   adapter: new Adapter(adapterConfig),
   cookieSecret: 'GABETHEDUMBIDIOT',
-  sessionStore: new MongoStore({ url: 'mongodb://mongo/gabethedumbserver' }),
+  sessionStore: new MongoStore({ url: `mongodb://mongo/gabethedumbserver` }),
   cookie: {
     secure: false, // Defaults to true in production
     maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
