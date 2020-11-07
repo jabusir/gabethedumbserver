@@ -10,6 +10,8 @@ const MongoStore = require('connect-mongo')(expressSession);
 const dotenv = require('dotenv');
 dotenv.config();
 
+const uri = process.env.NODE_ENV
+
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
 const PROJECT_NAME = 'gabethedumbserver';
 const adapterConfig = { mongoUri: 'mongodb://mongo/gabethedumbserver' };
@@ -69,8 +71,8 @@ module.exports = {
       authStrategy,
     }),
     new StaticApp({
-      src: './archive',
-      path: '/archive',
+      src: 'public',
+      path: '/public',
     }),
   ],
 };
