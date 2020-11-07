@@ -70,7 +70,7 @@ module.exports = {
     }),
     new StaticApp({
       src: './archive',
-      path: '/gabethedumbserver/archive',
+      path: '/archive',
     }),
   ],
 };

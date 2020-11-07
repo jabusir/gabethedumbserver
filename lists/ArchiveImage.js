@@ -3,8 +3,8 @@ const { LocalFileAdapter } = require('@keystonejs/file-adapters');
 
 
 const fileAdapter = new LocalFileAdapter({
-  src: './archive',
-  path: '/gabethedumbserver/archive',
+  src: '/archive',
+  path: '/archive',
 });
 
 const userIsAdmin = ({ authentication: { item: user } }) => Boolean(user && user.isAdmin);
